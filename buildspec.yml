@@ -10,7 +10,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building Docker test image...
-      - docker build -t $REPOSITORY_URI:test -f Dockerfile.dev .
+      - docker build -t $IMAGE_REPO_NAME:test -f Dockerfile.dev .
       - docker run -e CI=true $IMAGE_REPO_NAME:test npm run test
       - echo Build started on `date`
       - echo Building the Docker image...
