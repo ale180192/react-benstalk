@@ -1,4 +1,6 @@
 version: 0.2
+artifacts:
+  name: BuildArtifact
 phases:
   pre_build:
     commands:
