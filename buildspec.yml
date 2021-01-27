@@ -1,7 +1,7 @@
 version: 0.2
 artifacts:
   files:
-    - imageDetail.json
+    - Dockerrun.aws.json
 phases:
   pre_build:
     commands:

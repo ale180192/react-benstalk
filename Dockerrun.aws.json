@@ -1,0 +1,18 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "pidMode": "host",
+    "containerDefinitions": [
+      {
+        "name": "react",
+        "image": "react-benstalk",
+        "essential": true,
+        "portMappings": [
+          {
+            "hostPort": 80,
+            "containerPort": 80
+          }
+        ],
+        "memoryReservation": 512
+      }
+        ]
+  }
