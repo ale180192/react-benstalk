@@ -5,7 +5,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - IMAGE_REPO_NAME=react-benstalk
       - REPOSITORY_URI=331535986962.dkr.ecr.us-east-2.amazonaws.com/react-benstalk
-      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - $(aws ecr get-login-password --no-include-email --region us-east-2)
   build:
     commands:
       - echo Build started on `date`
