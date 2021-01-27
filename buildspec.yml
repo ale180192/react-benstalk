@@ -1,0 +1,26 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - IMAGE_REPO_NAME=react-benstalk
+      - REPOSITORY_URI=331535986962.dkr.ecr.us-east-2.amazonaws.com/react-benstalk
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building Docker test image...
+      - docker build -t $REPOSITORY_URI:test -f Dockerfile.dev .
+      - docker run -e CI=true $IMAGE_REPO_NAME:test npm run test
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t $IMAGE_REPO_NAME:latest .
+      - docker tag $IMAGE_REPO_NAME:latest $REPOSITORY_URI:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $REPOSITORY_URI:latest
