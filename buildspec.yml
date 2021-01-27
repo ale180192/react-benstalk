@@ -1,6 +1,7 @@
 version: 0.2
 artifacts:
-  name: BuildArtifact
+  files:
+    - imageDetail.json
 phases:
   pre_build:
     commands:
