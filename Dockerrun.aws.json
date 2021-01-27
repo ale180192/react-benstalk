@@ -4,7 +4,7 @@
     "containerDefinitions": [
       {
         "name": "react",
-        "image": "react-benstalk",
+        "image": "331535986962.dkr.ecr.us-east-2.amazonaws.com/react-benstalk:latest",
         "essential": true,
         "portMappings": [
           {
